@@ -5,146 +5,202 @@
   <title>AlbaSpace – Hizmetler</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Общие стили хедера и футера -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="/assets/js/include.js" defer></script>
+
   <style>
     :root {
       --header-bg: #020617;
       --accent: #00c2ff;
-      --page-bg: #ffffff;
-      --text-main: #111827;
-      --text-muted: #4b5563;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--page-bg); color: var(--text-main); }
-    .site-header { width:100%; background: var(--header-bg); color:#e5e7eb; border-bottom:1px solid #0f172a; }
-    .header-inner { max-width:1200px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-    .header-logo img { width:40px; height:40px; border-radius:999px; background:#0f172a; padding:4px; }
-    .header-logo span { font-weight:600; font-size:16px; letter-spacing:0.08em; text-transform:uppercase; color:#e5e7eb; text-decoration:none; }
-    .main-nav { display:flex; gap:16px; flex-wrap:wrap; font-size:14px; margin-left:20px; }
-    .main-nav a { color:#d1d5db; text-decoration:none; padding-bottom:2px; position:relative; }
-    .main-nav a:hover, .main-nav a.active { color:#ffffff; }
-    .main-nav a.active::after { content:""; position:absolute; left:0; bottom:-2px; width:100%; height:2px; background:var(--accent); border-radius:999px; }
-    .header-social { display:flex; gap:14px; margin-left:auto; }
-    .social-icon-svg { width:22px; height:22px; fill:none; stroke:#e5e7eb; stroke-width:1.6; transition: stroke 0.2s, transform 0.15s; }
-    .header-social a:hover .social-icon-svg { stroke:#ffffff; transform: translateY(-1px); }
-    .top-lang-switch { display:flex; gap:6px; align-items:center; margin-left:10px; }
-    .top-lang-switch a { padding:4px 10px; border-radius:999px; border:1px solid #4b5563; background:#020617; color:#e5e7eb; text-decoration:none; }
-    .top-lang-switch a.active { background:#e5e7eb; color:#020617; font-weight:600; }
 
-    .page-wrapper { max-width:1200px; margin:0 auto; padding:40px 20px 70px; }
-    .services-title { text-align:center; font-size:32px; margin-bottom:24px; }
-    .services-grid {
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:url('/assets/images/space-bg.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:#ffffff;
+    }
+
+    .page-wrapper{
+      max-width:1200px;
+      margin:70px auto 80px;
+      padding:0 20px 40px;
+    }
+
+    .services-shell{
+      background:rgba(15,23,42,0.94);
+      border-radius:26px;
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.95),
+        0 0 80px rgba(0,194,255,0.35);
+      padding:28px 26px 34px;
+      border:1px solid rgba(148,163,184,0.35);
+      backdrop-filter:blur(10px);
+      text-shadow:0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .services-title{
+      text-align:center;
+      font-size:32px;
+      margin-bottom:6px;
+    }
+
+    .services-sub{
+      text-align:center;
+      font-size:14px;
+      color:#e5e7eb;
+      margin-bottom:26px;
+    }
+
+    .services-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 30px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
     }
-    .service-card {
-      background:#f9fafb;
-      border-radius:16px;
+
+    .service-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:18px;
       overflow:hidden;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.1);
+      box-shadow:0 14px 30px rgba(0,0,0,0.8);
+      border:1px solid rgba(31,41,55,1);
       display:flex;
-      flex-direction: column;
-      height: 100%;
+      flex-direction:column;
+      transition:transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;
     }
-    .service-card img {
+
+    .service-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(56,189,248,0.9);
+      box-shadow:
+        0 0 26px rgba(56,189,248,0.55),
+        0 18px 40px rgba(0,0,0,0.95);
+    }
+
+    .service-card img{
       width:100%;
       height:180px;
       object-fit:cover;
+      display:block;
     }
-    .service-card .card-content {
-      padding: 20px;
+
+    .card-content{
+      padding:18px 18px 20px;
       flex:1;
-    }
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size:20px;
-    }
-    .service-card p {
-      font-size:15px;
-      line-height:1.5;
-      color: var(--text-main);
-    }
-    .service-card a {
-      margin-top: 16px;
-      display: inline-block;
-      padding: 8px 14px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size:14px;
+      display:flex;
+      flex-direction:column;
     }
 
-    footer.footer {
-      background:#111827;
-      color:#d1d5db;
-      padding:34px 20px;
+    .service-card h3{
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .service-card p{
       font-size:14px;
+      line-height:1.6;
+      color:#e5e7eb;
     }
-    .footer-grid {
-      max-width:1200px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:20px;
-      text-align:center;
+
+    .service-card a{
+      margin-top:16px;
+      align-self:flex-start;
+      padding:8px 16px;
+      border-radius:999px;
+      text-decoration:none;
+      font-size:13px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,#00c2ff,#38bdf8,#2563eb);
+      color:#020617;
+      font-weight:600;
+      box-shadow:0 0 18px rgba(56,189,248,0.7);
     }
-    .footer-logo img { width:60px; height:60px; background:#0f172a; padding:4px; border-radius:999px; }
-    .footer-social { display:flex; justify-content:center; gap:18px; margin-bottom:8px; }
+
+    .service-card a:hover{
+      filter:brightness(1.1);
+    }
+
+    @media(max-width:900px){
+      .page-wrapper{
+        margin-top:90px;
+      }
+    }
   </style>
-
-  <link rel="stylesheet" href="/assets/css/site.css" />
-  <script src="/assets/js/include.js" defer></script>
 </head>
 <body>
+  <!-- общий хедер -->
   <div data-include="/header-tr.html"></div>
 
+  <div class="page-wrapper">
+    <div class="services-shell">
+      <h1 class="services-title">Hizmetlerimiz</h1>
+      <p class="services-sub">
+        Uzayı, teknolojiyi ve eğitimi bir araya getirerek markalar ve öğrenciler için unutulmaz deneyimler tasarlıyoruz.
+      </p>
 
+      <div class="services-grid">
 
+        <!-- 1: VR Oyunları -->
+        <div class="service-card">
+          <img src="/assets/images/vr.png" alt="VR Oyunları">
+          <div class="card-content">
+            <h3>Sanal Gerçeklik (VR) Oyunları</h3>
+            <p>
+              Uzay ve bilim temalı VR oyunlarımızla, öğrencilerin ve ziyaretçilerin
+              etkileşimli öğrenme süreçlerini daha heyecanlı ve kalıcı hale getiriyoruz.
+            </p>
+            <a href="#">Detaylar</a>
+          </div>
+        </div>
 
-<div class="page-wrapper">
+        <!-- 2: VR Simülasyonları -->
+        <div class="service-card">
+          <img src="/assets/images/vr1.png" alt="VR Simülasyonları">
+          <div class="card-content">
+            <h3>Sanal Gerçeklik (VR) Simülasyonları</h3>
+            <p>
+              Roket fırlatmalarından gezegen keşiflerine kadar, gerçekçi VR
+              simülasyonlarımızla kullanıcıları meta evrenlerde ilham verici yolculuklara çıkarıyoruz.
+            </p>
+            <a href="#">Detaylar</a>
+          </div>
+        </div>
 
-  <h1 class="services-title">Hizmetlerimiz</h1>
+        <!-- 3: Stratosfer Uçuşları -->
+        <div class="service-card">
+          <img src="/assets/images/strato.jpg" alt="Stratosfer Uçuşları">
+          <div class="card-content">
+            <h3>Stratosfer Uçuşları &amp; Uzay Reklamları</h3>
+            <p>
+              Yüksek irtifa balonları ile markaları ve deneyleri stratosfere taşıyor,
+              gerçek uzay görüntüleriyle fark yaratan kampanyalar tasarlıyoruz.
+            </p>
+            <a href="#">Detaylar</a>
+          </div>
+        </div>
 
-  <div class="services-grid">
+        <!-- 4: 3D / AR İçerik -->
+        <div class="service-card">
+          <img src="/assets/images/3d-gallery.jpg" alt="3D ve AR İçerik">
+          <div class="card-content">
+            <h3>3D &amp; Artırılmış Gerçeklik (AR) İçerikleri</h3>
+            <p>
+              Uydular, gezegenler ve uzay araçları için yüksek kaliteli 3D modeller
+              ve AR deneyimleri üreterek sergiler, müzeler ve eğitim projeleri için
+              yenilikçi çözümler sunuyoruz.
+            </p>
+            <a href="#">Detaylar</a>
+          </div>
+        </div>
 
-    <!-- Карточка 1: VR Oyunları -->
-    <div class="service-card">
-      <img src="assets/images/vr.png" alt="VR Oyunları">
-      <div class="card-content">
-        <h3>SANAL GERÇEKLİK (VR) OYUNLARI</h3>
-        <p>
-          Eğitimde inovasyonu bir adım öteye taşıyoruz. Sanal gerçeklik teknolojisi ile
-          uzay, bilim ve teknoloji temalı simülasyonlar ve oyunlar sunarak öğrenme süreçlerini
-          daha etkili ve eğlenceli hale getiriyoruz.
-        </p>
-        <a href="#">Detaylar</a>
-      </div>
-    </div>
+      </div><!-- /.services-grid -->
+    </div><!-- /.services-shell -->
+  </div><!-- /.page-wrapper -->
 
-    <!-- Карточка 2: VR Simülasyonları -->
-    <div class="service-card">
-      <img src="assets/images/vr1.png" alt="VR Simülasyonları">
-      <div class="card-content">
-        <h3>SANAL GERÇEKLİK (VR) SİMÜLASYONLARI</h3>
-        <p>
-          ALBA Space, sizi meta evrenlerde büyüleyici bir yolculuğa çıkarıyor.
-          3 boyutlu simülasyonlarımızla, gerçek ötesi deneyimler sunarak hem eğitim
-          hem de eğlence alanında fark yaratıyoruz. Geleceğin dünyasını bugünden deneyimleyin.
-        </p>
-        <a href="#">Detaylar</a>
-      </div>
-    </div>
-
-    <!-- Можно добавить больше карточек, например: Uzay Reklamları, 3D Galeri, Danışmanlık и т.д. -->
-
-  </div>
-
-</div>
-
-
-
+  <!-- общий футер -->
   <div data-include="/footer-tr.html"></div>
 </body>
 </html>
-
