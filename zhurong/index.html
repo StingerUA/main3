@@ -32,7 +32,7 @@
       to { opacity: 1; }
     }
 
-    /* HEADER (общий стиль как на других страницах) */
+    /* HEADER */
     .site-header {
       width: 100%;
       background: var(--header-bg);
@@ -208,7 +208,6 @@
       overflow: hidden;
     }
 
-    /* subtle moving scan-line */
     #loading-overlay::before {
       content: "";
       position: absolute;
@@ -383,7 +382,6 @@
       text-transform: uppercase;
     }
 
-    /* fade-out class */
     #loading-overlay.fade-out {
       animation: overlayFadeOut 0.5s ease-in forwards;
       pointer-events: none;
@@ -447,7 +445,100 @@
     }
   </style>
 
+  <!-- Глобальные стили + include -->
   <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- ДОП. СТИЛИ ИМЕННО ДЛЯ ФУТЕРА, ЧТОБЫ ПЕРЕБИТЬ site.css -->
+  <style>
+    footer.site-footer {
+      background: #020617;
+      color: #e5e7eb;
+      border-top: 1px solid #0b1120;
+      padding: 24px 0 28px;
+    }
+
+    .site-footer .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-footer .footer-left img {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(0, 194, 255, 0.7);
+    }
+
+    .site-footer .footer-tagline {
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    .site-footer .footer-center,
+    .site-footer .footer-right {
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    .site-footer .footer-right {
+      text-align: right;
+    }
+
+    .site-footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .site-footer .footer-social {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      justify-content: center;
+    }
+
+    .site-footer .footer-social svg {
+      width: 22px;
+      height: 22px;
+      stroke: #e5e7eb;
+      fill: none;
+      transition: stroke 0.2s, transform 0.15s;
+    }
+
+    .site-footer .footer-social a:hover svg {
+      stroke: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .site-footer .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .site-footer .footer-right {
+        text-align: center;
+      }
+    }
+  </style>
+
   <script src="/assets/js/include.js" defer></script>
 </head>
 
@@ -466,7 +557,6 @@
     <div id="loading-overlay">
       <div class="loader-card">
         <div class="loading-logo">
-          <!-- ЗДЕСЬ МОЖНО ПОМЕНЯТЬ src НА ТВОЙ РЕАЛЬНЫЙ ЛОГОТИП -->
           <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
           <span>ALBASPACE</span>
         </div>
@@ -541,8 +631,6 @@
         setTimeout(hideOverlay, 250);
       });
 
-      // На всякий случай: если по какой-то причине событие load не придёт
-      // (ошибка модели / сеть), убираем экран через 20 секунд.
       setTimeout(hideOverlay, 20000);
     });
   </script>
