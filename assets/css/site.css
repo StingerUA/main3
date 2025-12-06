@@ -1,487 +1,229 @@
-/* ====== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ALBASPACE ====== */
-:root {
-  --header-bg: #020617;
-  --accent: #00c2ff;
-  --page-bg: #020617;
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
+/* БАЗОВЫЕ НАСТРОЙКИ
+   (НЕ трогаем background и color, чтобы страницы сами их задавали) */
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-/* Базовые стили (страничные <style> всё равно их переопределяют при необходимости) */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text-main);
-  background: var(--page-bg);
+/* =========================
+   HEADER
+   ========================= */
+
+.site-header{
+  background:#020617;
+  color:#e5e7eb;
+  border-bottom:1px solid #0f172a;
 }
 
-/* ====== ОБЩИЙ ХЕДЕР ДЛЯ header-tr.html / header-en.html ====== */
-
-.site-header {
-  width: 100%;
-  background: var(--header-bg);
-  color: #e5e7eb;
-  border-bottom: 1px solid #0f172a;
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.header-logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:#e5e7eb;
 }
 
-/* ЛОГОТИП ALBASPACE В ХЕДЕРЕ */
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #e5e7eb;
+.header-logo img{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  background:#0f172a;
+  padding:4px;
 }
 
-.header-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: #0f172a;
-  padding: 4px;
-  box-shadow: 0 0 12px rgba(0, 194, 255, 0.5);
+.header-logo span{
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
-.header-logo span {
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.main-nav{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:14px;
+  margin-left:20px;
 }
 
-/* ГЛАВНОЕ МЕНЮ */
-.main-nav {
-  margin-left: 20px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 14px;
+.main-nav a{
+  color:#d1d5db;
+  text-decoration:none;
+  padding-bottom:2px;
+  position:relative;
 }
 
-.main-nav a {
-  color: #d1d5db;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 2px;
-  white-space: nowrap;
+.main-nav a:hover,
+.main-nav a.active{
+  color:#ffffff;
 }
 
-.main-nav a:hover {
-  color: #ffffff;
+.main-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-2px;
+  width:100%;
+  height:2px;
+  background:#00c2ff;
+  border-radius:999px;
 }
 
-.main-nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 999px;
+.header-social{
+  margin-left:auto;
+  display:flex;
+  gap:14px;
 }
 
-/* СОЦСЕТИ В ХЕДЕРЕ */
-.header-social {
-  display: flex;
-  gap: 14px;
-  margin-left: auto;
-  margin-right: 10px;
+/* SVG-иконки соцсетей в хедере */
+.social-icon-svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:#e5e7eb;
+  stroke-width:1.6;
+  transition:stroke .2s,transform .15s;
 }
 
-/* Ссылки-кружки под иконки */
-.header-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+.header-social a:hover .social-icon-svg{
+  stroke:#ffffff;
+  transform:translateY(-1px);
 }
 
-/* ВАЖНО: принудительно уменьшаем иконки соцсетей (и SVG, и PNG/JPG) */
-.header-social img,
-.header-social svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
+.top-lang-switch{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  margin-left:10px;
+  font-size:13px;
 }
 
-/* ===== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА (TR / EN) ===== */
-.top-lang-switch {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  font-size: 13px;
+.top-lang-switch a{
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid #4b5563;
+  background:#020617;
+  color:#e5e7eb;
+  text-decoration:none;
 }
 
-.top-lang-switch a {
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #4b5563;
-  background: #020617;
-  color: #e5e7eb;
-  text-decoration: none;
+.top-lang-switch a.active{
+  background:#e5e7eb;
+  color:#020617;
+  font-weight:600;
 }
 
-.top-lang-switch a.active {
-  background: #e5e7eb;
-  color: #020617;
-  font-weight: 600;
+/* =========================
+   ОБЩИЕ КЛАССЫ СТРАНИЦ
+   (используются, например, на İletişim)
+   ========================= */
+
+.page-wrapper{
+  max-width:900px;
+  margin:50px auto 70px;
+  padding:0 20px;
+  text-align:center;
 }
 
-/* ===== ФУТЕР (footer-tr.html / footer-en.html) — базовая сетка ===== */
-
-.site-footer {
-  background: #020617;
-  color: #9ca3af;
-  border-top: 1px solid #0f172a;
-  padding: 24px 0 20px;
-  margin-top: 40px;
+.page-wrapper img.hero{
+  max-width:420px;
+  width:100%;
+  border-radius:20px;
+  margin-bottom:24px;
+  box-shadow:0 8px 26px rgba(0,0,0,0.28);
 }
 
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
+.page-title{
+  font-size:32px;
+  margin-bottom:6px;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.page-sub{
+  font-size:14px;
+  color:#4b5563;
+  margin-bottom:24px;
 }
 
-.footer-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: #020617;
-  padding: 4px;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+.coming-title{
+  font-size:42px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2px;
 }
 
-.footer-logo span {
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e5e7eb;
+/* =========================
+   FOOTER
+   ========================= */
+
+footer.footer{
+  background:#111827;
+  color:#d1d5db;
+  padding:26px 20px;
+  font-size:13px;
 }
 
-.footer-contact {
-  font-size: 13px;
-  line-height: 1.4;
+.footer-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+  text-align:center;
 }
 
-.footer-social {
-  margin-left: auto;
-  display: flex;
-  gap: 14px;
+.footer-logo img{
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  background:#0f172a;
+  padding:4px;
 }
 
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+/* соцсети в футере */
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:6px;
 }
 
-/* тоже ограничиваем размер иконок в футере */
-.footer-social img,
-.footer-social svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
+.footer-social svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:#e5e7eb;
+  stroke-width:1.6;
+  transition:stroke .2s,transform .15s;
 }
 
-@media (max-width: 768px) {
-  .header-inner {
-    justify-content: space-between;
+.footer-social a:hover svg{
+  stroke:#ffffff;
+  transform:translateY(-1px);
+}
+
+.footer-address p,
+.footer-center p{
+  margin:2px 0;
+}
+
+@media(max-width:900px){
+  .footer-grid{
+    grid-template-columns:1fr;
   }
-  .main-nav {
-    width: 100%;
-    margin-left: 0;
+  .header-inner{
+    justify-content:center;
   }
-  .header-social {
-    margin-left: 0;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-social {
-    margin-left: 0;
-  }
-}
-
-/* ===========================================================
-   ===== FUTURISTIC ALBASPACE 3D PRELOADER (GLOBAL) =====
-   =========================================================== */
-
-#loading-overlay {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, #020617 0%, #020617 45%, #000000 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  color: #e5e7eb;
-  opacity: 0;
-  animation: overlayFadeIn 0.7s ease-out forwards;
-  overflow: hidden;
-}
-
-/* subtle moving scan-line */
-#loading-overlay::before {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 194, 255, 0.15) 50%,
-    transparent 100%
-  );
-  animation: scanMove 3.5s linear infinite;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-.loader-card {
-  position: relative;
-  padding: 26px 26px 22px;
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.85);
-  box-shadow:
-    0 0 30px rgba(0, 194, 255, 0.45),
-    0 0 80px rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  max-width: 320px;
-  width: 90%;
-  backdrop-filter: blur(10px);
-  text-align: center;
-}
-
-.loader-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 180deg,
-    rgba(0, 194, 255, 0.2),
-    transparent,
-    rgba(56, 189, 248, 0.4),
-    transparent,
-    rgba(0, 194, 255, 0.2)
-  );
-  opacity: 0.6;
-  filter: blur(10px);
-  z-index: -1;
-  animation: glowPulse 4s ease-in-out infinite;
-}
-
-.loading-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.loading-logo img {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #020617;
-  padding: 4px;
-  box-shadow: 0 0 18px rgba(0, 194, 255, 0.6);
-}
-
-.loading-logo span {
-  font-size: 15px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #e5e7eb;
-  opacity: 0.9;
-}
-
-.loader-orb {
-  position: relative;
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 16px;
-}
-
-.orb-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 3px solid rgba(148, 163, 184, 0.3);
-  border-top-color: #00c2ff;
-  border-right-color: rgba(56, 189, 248, 0.9);
-  animation: orbSpin 1.5s linear infinite;
-  box-shadow:
-    0 0 18px rgba(0, 194, 255, 0.7),
-    0 0 32px rgba(37, 99, 235, 0.4);
-}
-
-.orb-core {
-  position: absolute;
-  inset: 18px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(56, 189, 248, 0.95),
-    rgba(8, 47, 73, 1)
-  );
-  box-shadow:
-    0 0 24px rgba(56, 189, 248, 0.9),
-    0 0 60px rgba(0, 0, 0, 1);
-}
-
-.loading-text {
-  font-size: 15px;
-  line-height: 1.4;
-  margin-bottom: 14px;
-  color: #e5e7eb;
-  opacity: 0.92;
-}
-
-.loading-subtext {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-bottom: 16px;
-}
-
-.progress-shell {
-  position: relative;
-  width: 100%;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background: radial-gradient(circle at top, #020617, #020617);
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-}
-
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(56, 189, 248, 1),
-    rgba(59, 130, 246, 1),
-    rgba(37, 99, 235, 0.8)
-  );
-  box-shadow:
-    0 0 16px rgba(56, 189, 248, 0.9),
-    0 0 30px rgba(56, 189, 248, 0.8);
-  border-radius: inherit;
-  transition: width 0.25s ease-out;
-}
-
-.progress-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at center,
-    rgba(56, 189, 248, 0.35),
-    transparent 60%
-  );
-  opacity: 0;
-  animation: progressGlow 1.8s ease-in-out infinite;
-}
-
-.overlay-hint {
-  margin-top: 8px;
-  font-size: 11px;
-  color: #9ca3af;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* fade-out class */
-#loading-overlay.fade-out {
-  animation: overlayFadeOut 0.5s ease-in forwards;
-  pointer-events: none;
-}
-
-/* ===== АНИМАЦИИ ===== */
-@keyframes overlayFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes overlayFadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes orbSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes glowPulse {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.03);
-  }
-}
-
-@keyframes scanMove {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(50%);
-  }
-}
-
-@keyframes progressGlow {
-  0%,
-  100% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.5;
+  .header-social{
+    margin-left:0;
   }
 }
