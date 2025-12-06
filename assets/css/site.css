@@ -25,6 +25,14 @@ body{
   flex-wrap:wrap;
 }
 
+/* Hide SHOP and DFS from header menu */
+.main-nav a[href="/shop.html"],
+.main-nav a[href="/dfs.html"] {
+  display: none !important;
+}
+
+
+
 .header-logo{
   display:flex;
   align-items:center;
