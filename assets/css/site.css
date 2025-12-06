@@ -1,4 +1,235 @@
-/* ===== FUTURISTIC ALBASPACE 3D PRELOADER (GLOBAL) ===== */
+/* ====== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ALBASPACE ====== */
+:root {
+  --header-bg: #020617;
+  --accent: #00c2ff;
+  --page-bg: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+/* Базовые стили (страничные <style> всё равно их переопределяют при необходимости) */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background: var(--page-bg);
+}
+
+/* ====== ОБЩИЙ ХЕДЕР ДЛЯ header-tr.html / header-en.html ====== */
+
+.site-header {
+  width: 100%;
+  background: var(--header-bg);
+  color: #e5e7eb;
+  border-bottom: 1px solid #0f172a;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ЛОГОТИП ALBASPACE В ХЕДЕРЕ */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.header-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #0f172a;
+  padding: 4px;
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.5);
+}
+
+.header-logo span {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ГЛАВНОЕ МЕНЮ */
+.main-nav {
+  margin-left: 20px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.main-nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* СОЦСЕТИ В ХЕДЕРЕ */
+.header-social {
+  display: flex;
+  gap: 14px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+/* Ссылки-кружки под иконки */
+.header-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* ВАЖНО: принудительно уменьшаем иконки соцсетей (и SVG, и PNG/JPG) */
+.header-social img,
+.header-social svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА (TR / EN) ===== */
+.top-lang-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.top-lang-switch a {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.top-lang-switch a.active {
+  background: #e5e7eb;
+  color: #020617;
+  font-weight: 600;
+}
+
+/* ===== ФУТЕР (footer-tr.html / footer-en.html) — базовая сетка ===== */
+
+.site-footer {
+  background: #020617;
+  color: #9ca3af;
+  border-top: 1px solid #0f172a;
+  padding: 24px 0 20px;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #020617;
+  padding: 4px;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+}
+
+.footer-logo span {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
+
+.footer-contact {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.footer-social {
+  margin-left: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* тоже ограничиваем размер иконок в футере */
+.footer-social img,
+.footer-social svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    justify-content: space-between;
+  }
+  .main-nav {
+    width: 100%;
+    margin-left: 0;
+  }
+  .header-social {
+    margin-left: 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-social {
+    margin-left: 0;
+  }
+}
+
+/* ===========================================================
+   ===== FUTURISTIC ALBASPACE 3D PRELOADER (GLOBAL) =====
+   =========================================================== */
 
 #loading-overlay {
   position: fixed;
@@ -177,7 +408,7 @@
     rgba(56, 189, 248, 0.35),
     transparent 60%
   );
-  opacity: 0.0;
+  opacity: 0;
   animation: progressGlow 1.8s ease-in-out infinite;
 }
 
@@ -195,6 +426,7 @@
   pointer-events: none;
 }
 
+/* ===== АНИМАЦИИ ===== */
 @keyframes overlayFadeIn {
   from {
     opacity: 0;
@@ -224,7 +456,8 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
@@ -244,7 +477,8 @@
 }
 
 @keyframes progressGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.1;
   }
   50% {
