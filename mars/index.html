@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-  <!-- Глобальные стили и include для хедера/футера -->
+  <!-- Глобальные стили и include -->
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script src="/assets/js/include.js" defer></script>
 
@@ -28,7 +28,7 @@
 
     h1 {
       text-align: center;
-      margin-top: 110px; /* чуть ниже, чтобы не прилипало к хедеру */
+      margin-top: 110px;
       margin-bottom: 15px;
       font-size: 32px;
       text-shadow: 0 0 15px #000;
@@ -70,8 +70,9 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- Глобальный турецкий хедер -->
+  <!-- Глобальный хедер -->
   <div data-include="/header-tr.html"></div>
 
   <main>
@@ -82,40 +83,39 @@
         Mars, ince atmosferi ve kızıl yüzeyiyle gelecekteki insanlı görevler için önemli bir hedeftir.
       </p>
 
-    <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
-    <div id="loading-overlay">
-      <div class="loader-card">
-        <div class="loading-logo">
-          <!-- Поменяй src на реальный логотип, если нужно -->
-          <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
-          <span>ALBASPACE</span>
-        </div>
-
-        <div class="loader-orb">
-          <div class="orb-ring"></div>
-          <div class="orb-core"></div>
-        </div>
-
-        <p class="loading-text">
-          Lütfen bekleyin, 3D model telefonunuza yükleniyor…
-        </p>
-        <p class="loading-subtext">
-          Bu işlem internet hızınıza göre birkaç saniye sürebilir.
-        </p>
-
-        <div class="progress-shell">
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
+      <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
+      <div id="loading-overlay">
+        <div class="loader-card">
+          <div class="loading-logo">
+            <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
+            <span>ALBASPACE</span>
           </div>
-          <div class="progress-glow"></div>
-        </div>
 
-        <div class="overlay-hint">
-          AR &amp; 3D deneyimi hazırlanıyor
+          <div class="loader-orb">
+            <div class="orb-ring"></div>
+            <div class="orb-core"></div>
+          </div>
+
+          <p class="loading-text">
+            Lütfen bekleyin, 3D model telefonunuza yükleniyor…
+          </p>
+          <p class="loading-subtext">
+            Bu işlem internet hızınıza göre birkaç saniye sürebilir.
+          </p>
+
+          <div class="progress-shell">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="progress-glow"></div>
+          </div>
+
+          <div class="overlay-hint">
+            AR &amp; 3D deneyimi hazırlanıyor
+          </div>
         </div>
       </div>
-    </div>
-      
+
       <model-viewer
         src="/assets/models/mars.glb"
         camera-controls
@@ -124,7 +124,13 @@
         ar-modes="webxr scene-viewer quick-look">
       </model-viewer>
 
-  <!-- ЛОГИКА ДЛЯ ПРЕЛОАДЕРА 3D-МОДЕЛИ -->
+    </div>
+  </main>
+
+  <!-- Глобальный футер -->
+  <div data-include="/footer-tr.html"></div>
+
+  <!-- ЛОГИКА ДЛЯ ПРЕЛОАДЕРА -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       const viewer = document.querySelector("model-viewer");
@@ -159,17 +165,9 @@
         setTimeout(hideOverlay, 250);
       });
 
-      // Защита от зависания: уберём оверлей максимум через 20 секунд
       setTimeout(hideOverlay, 20000);
     });
   </script>
-</body>
-</html>
-      
-    </div>
-  </main>
 
-  <!-- Глобальный турецкий футер -->
-  <div data-include="/footer-tr.html"></div>
 </body>
 </html>
