@@ -82,6 +82,40 @@
         Mars, ince atmosferi ve kızıl yüzeyiyle gelecekteki insanlı görevler için önemli bir hedeftir.
       </p>
 
+    <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
+    <div id="loading-overlay">
+      <div class="loader-card">
+        <div class="loading-logo">
+          <!-- Поменяй src на реальный логотип, если нужно -->
+          <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
+          <span>ALBASPACE</span>
+        </div>
+
+        <div class="loader-orb">
+          <div class="orb-ring"></div>
+          <div class="orb-core"></div>
+        </div>
+
+        <p class="loading-text">
+          Lütfen bekleyin, 3D model telefonunuza yükleniyor…
+        </p>
+        <p class="loading-subtext">
+          Bu işlem internet hızınıza göre birkaç saniye sürebilir.
+        </p>
+
+        <div class="progress-shell">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="progress-glow"></div>
+        </div>
+
+        <div class="overlay-hint">
+          AR &amp; 3D deneyimi hazırlanıyor
+        </div>
+      </div>
+    </div>
+      
       <model-viewer
         src="/assets/models/mars.glb"
         camera-controls
@@ -89,6 +123,49 @@
         ar
         ar-modes="webxr scene-viewer quick-look">
       </model-viewer>
+
+  <!-- ЛОГИКА ДЛЯ ПРЕЛОАДЕРА 3D-МОДЕЛИ -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const viewer = document.querySelector("model-viewer");
+      const overlay = document.getElementById("loading-overlay");
+      const progressFill = document.querySelector(".progress-fill");
+
+      if (!viewer || !overlay || !progressFill) return;
+
+      const hideOverlay = () => {
+        if (overlay.classList.contains("fade-out")) return;
+        overlay.classList.add("fade-out");
+        setTimeout(() => {
+          if (overlay && overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
+          }
+        }, 550);
+      };
+
+      viewer.addEventListener("progress", (event) => {
+        const total = event.detail && typeof event.detail.totalProgress === "number"
+          ? event.detail.totalProgress
+          : null;
+
+        if (total !== null) {
+          const percent = Math.max(0, Math.min(100, Math.round(total * 100)));
+          progressFill.style.width = percent + "%";
+        }
+      });
+
+      viewer.addEventListener("load", () => {
+        progressFill.style.width = "100%";
+        setTimeout(hideOverlay, 250);
+      });
+
+      // Защита от зависания: уберём оверлей максимум через 20 секунд
+      setTimeout(hideOverlay, 20000);
+    });
+  </script>
+</body>
+</html>
+      
     </div>
   </main>
 
