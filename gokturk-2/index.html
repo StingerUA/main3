@@ -70,6 +70,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Глобальный турецкий хедер -->
   <div data-include="/header-tr.html"></div>
@@ -83,40 +84,39 @@
         geliştirilen yüksek çözünürlüklü yer gözlem uydusudur.
       </p>
 
-    <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
-    <div id="loading-overlay">
-      <div class="loader-card">
-        <div class="loading-logo">
-          <!-- Поменяй src на реальный логотип, если нужно -->
-          <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
-          <span>ALBASPACE</span>
-        </div>
-
-        <div class="loader-orb">
-          <div class="orb-ring"></div>
-          <div class="orb-core"></div>
-        </div>
-
-        <p class="loading-text">
-          Lütfen bekleyin, 3D model telefonunuza yükleniyor…
-        </p>
-        <p class="loading-subtext">
-          Bu işlem internet hızınıza göre birkaç saniye sürebilir.
-        </p>
-
-        <div class="progress-shell">
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
+      <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
+      <div id="loading-overlay">
+        <div class="loader-card">
+          <div class="loading-logo">
+            <!-- Поменяй src на реальный логотип, если нужно -->
+            <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
+            <span>ALBASPACE</span>
           </div>
-          <div class="progress-glow"></div>
-        </div>
 
-        <div class="overlay-hint">
-          AR &amp; 3D deneyimi hazırlanıyor
+          <div class="loader-orb">
+            <div class="orb-ring"></div>
+            <div class="orb-core"></div>
+          </div>
+
+          <p class="loading-text">
+            Lütfen bekleyin, 3D model telefonunuza yükleniyor…
+          </p>
+          <p class="loading-subtext">
+            Bu işlem internet hızınıza göre birkaç saniye sürebilir.
+          </p>
+
+          <div class="progress-shell">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="progress-glow"></div>
+          </div>
+
+          <div class="overlay-hint">
+            AR &amp; 3D deneyimi hazırlanıyor
+          </div>
         </div>
       </div>
-    </div>
-
 
       <model-viewer
         src="/assets/models/gokturk-2.glb"
@@ -126,6 +126,10 @@
         ar-modes="webxr scene-viewer quick-look">
       </model-viewer>
     </div>
+  </main>
+
+  <!-- Глобальный турецкий футер -->
+  <div data-include="/footer-tr.html"></div>
 
   <!-- ЛОГИКА ДЛЯ ПРЕЛОАДЕРА 3D-МОДЕЛИ -->
   <script>
@@ -166,12 +170,5 @@
       setTimeout(hideOverlay, 20000);
     });
   </script>
-</body>
-</html>
-    
-  </main>
-
-  <!-- Глобальный турецкий футер -->
-  <div data-include="/footer-tr.html"></div>
 </body>
 </html>

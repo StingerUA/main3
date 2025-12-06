@@ -6,6 +6,7 @@
   <title>Hubble Uzay Teleskobu – Alba Space</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
   <style>
     body {
       margin:0;
@@ -19,56 +20,7 @@
     @keyframes fadeIn {
       to { opacity:1; }
     }
-    .logo {
-      position:fixed; top:16px; left:16px; z-index:100;
-    }
-    .logo img {
-      width:70px; border-radius:50%; box-shadow:0 0 10px rgba(0,0,0,0.6);
-    }
-    .top-bar {
-      position:fixed;
-      top:16px;
-      right:16px;
-      z-index:90;
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:8px;
-    }
-    .lang-switch button {
-      border:none;
-      padding:4px 10px;
-      margin-left:4px;
-      border-radius:999px;
-      background:rgba(0,0,0,0.6);
-      color:#fff;
-      cursor:pointer;
-      font-size:12px;
-    }
-    .lang-switch button.active {
-      background:#00b4ff;
-      color:#000;
-      font-weight:bold;
-    }
-    nav.main-nav {
-      background:rgba(0,0,0,0.55);
-      border-radius:999px;
-      padding:6px 14px;
-      display:flex;
-      gap:10px;
-      box-shadow:0 0 18px rgba(0,0,0,0.7);
-    }
-    nav.main-nav a {
-      color:#fff;
-      text-decoration:none;
-      font-size:13px;
-      padding:4px 8px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    nav.main-nav a:hover {
-      background:rgba(255,255,255,0.12);
-    }
+
     h1 {
       text-align:center;
       margin-top:100px;
@@ -101,27 +53,31 @@
     @media (max-width:768px) {
       h1 { font-size:26px; margin-top:90px; }
       model-viewer { height:420px; }
-      nav.main-nav { flex-wrap:wrap; justify-content:flex-end; }
     }
   </style>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get('lang') || 'tr';
       document.documentElement.lang = lang;
+
       const trBtn = document.getElementById('lang-tr');
       const enBtn = document.getElementById('lang-en');
+
       if (trBtn && enBtn) {
         if (lang === 'tr') {
           trBtn.classList.add('active');
         } else {
           enBtn.classList.add('active');
         }
+
         function setLang(code) {
           const url = new URL(window.location.href);
           url.searchParams.set('lang', code);
           window.location.href = url.toString();
         }
+
         trBtn.onclick = () => setLang('tr');
         enBtn.onclick = () => setLang('en');
       }
@@ -134,54 +90,61 @@
 <body>
   <div data-include="/header-tr.html"></div>
 
-  
+  <main>
+    <h1 style="margin-top: 20px;">Hubble Uzay Teleskobu</h1>
 
-  
-    
-  </div>
+    <div class="container">
+      <p>Hubble Uzay Teleskobu, evrenin derinliklerini yüksek çözünürlüklü görüntülerle gözlemler.</p>
 
-  <h1 style="margin-top: 20px;">Hubble Uzay Teleskobu</h1>
-
-  <div class="container">
-    <p>Hubble Uzay Teleskobu, evrenin derinliklerini yüksek çözünürlüklü görüntülerle gözlemler.</p>
-
-    <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
-    <div id="loading-overlay">
-      <div class="loader-card">
-        <div class="loading-logo">
-          <!-- Поменяй src на реальный логотип, если нужно -->
-          <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
-          <span>ALBASPACE</span>
-        </div>
-
-        <div class="loader-orb">
-          <div class="orb-ring"></div>
-          <div class="orb-core"></div>
-        </div>
-
-        <p class="loading-text">
-          Lütfen bekleyin, 3D model telefonunuza yükleniyor…
-        </p>
-        <p class="loading-subtext">
-          Bu işlem internet hızınıza göre birkaç saniye sürebilir.
-        </p>
-
-        <div class="progress-shell">
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
+      <!-- FUTURISTIC ALBASPACE LOADING OVERLAY -->
+      <div id="loading-overlay">
+        <div class="loader-card">
+          <div class="loading-logo">
+            <!-- Поменяй src на реальный логотип, если нужно -->
+            <img src="/assets/images/albaspace-logo.png" alt="AlbaSpace Logo" />
+            <span>ALBASPACE</span>
           </div>
-          <div class="progress-glow"></div>
-        </div>
 
-        <div class="overlay-hint">
-          AR &amp; 3D deneyimi hazırlanıyor
+          <div class="loader-orb">
+            <div class="orb-ring"></div>
+            <div class="orb-core"></div>
+          </div>
+
+          <p class="loading-text">
+            Lütfen bekleyin, 3D model telefonunuza yükleniyor…
+          </p>
+          <p class="loading-subtext">
+            Bu işlem internet hızınıza göre birkaç saniye sürebilir.
+          </p>
+
+          <div class="progress-shell">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="progress-glow"></div>
+          </div>
+
+          <div class="overlay-hint">
+            AR &amp; 3D deneyimi hazırlanıyor
+          </div>
         </div>
       </div>
+
+      <model-viewer
+        src="/assets/models/hubble1.glb"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        tone-mapping="neutral"
+        poster="poster.webp"
+        shadow-intensity="1"
+        autoplay>
+      </model-viewer>
     </div>
+  </main>
 
+  <div data-include="/footer-tr.html"></div>
 
-    <model-viewer src="/assets/models/hubble1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay></model-viewer>
-    
   <!-- ЛОГИКА ДЛЯ ПРЕЛОАДЕРА 3D-МОДЕЛИ -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
@@ -223,12 +186,3 @@
   </script>
 </body>
 </html>
-
-
-
-</div>
-  <div data-include="/footer-tr.html"></div>
-</body>
-</html>
-
-
