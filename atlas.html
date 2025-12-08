@@ -22,124 +22,8 @@
 
     body {
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:#020617 url("assets/images/space-bg.jpg") center/cover fixed no-repeat;
+      background:#020617 url("/assets/images/space-bg.jpg") center/cover fixed no-repeat;
       color:var(--text-main);
-    }
-
-    /* ---------- HEADER ---------- */
-
-    .site-header {
-      width:100%;
-      background:var(--header-bg);
-      color:#e5e7eb;
-      border-bottom:1px solid #0f172a;
-    }
-
-    .header-inner {
-      max-width:1200px;
-      margin:0 auto;
-      padding:10px 20px;
-      display:flex;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .header-logo {
-      display:flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
-      color:#e5e7eb;
-    }
-
-    .header-logo img {
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      background:#0f172a;
-      padding:4px;
-    }
-
-    .header-logo span {
-      font-weight:600;
-      font-size:16px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .main-nav {
-      margin-left:20px;
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      font-size:14px;
-    }
-
-    .main-nav a {
-      color:#d1d5db;
-      text-decoration:none;
-      position:relative;
-      padding-bottom:2px;
-    }
-
-    .main-nav a:hover {
-      color:#ffffff;
-    }
-
-    .main-nav a.active::after {
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-2px;
-      width:100%;
-      height:2px;
-      background:var(--accent);
-      border-radius:999px;
-    }
-
-    .header-social {
-      display:flex;
-      gap:14px;
-      margin-left:auto;
-      margin-right:10px;
-    }
-
-    .social-icon-svg {
-      width:22px;
-      height:22px;
-      fill:none;
-      stroke:#e5e7eb;
-      stroke-width:1.6;
-      transition:stroke .2s,transform .15s;
-    }
-
-    .header-social a:hover .social-icon-svg,
-    .footer-social a:hover .social-icon-svg {
-      stroke:#ffffff;
-      transform:translateY(-1px);
-    }
-
-    .top-lang-switch {
-      display:flex;
-      gap:6px;
-      align-items:center;
-      font-size:13px;
-    }
-
-    .top-lang-switch a {
-      padding:4px 10px;
-      border-radius:999px;
-      border:1px solid #4b5563;
-      background:#020617;
-      color:#e5e7eb;
-      text-decoration:none;
-    }
-
-    .top-lang-switch a.active {
-      background:#e5e7eb;
-      color:#020617;
-      font-weight:600;
     }
 
     /* ---------- ATLAS LAYOUT ---------- */
@@ -298,56 +182,6 @@
       color:#cbd5f5;
       line-height:1.5;
     }
-
-    /* ---------- FOOTER ---------- */
-
-    footer.footer {
-      background:#111827;
-      color:#d1d5db;
-      padding:34px 20px;
-      font-size:14px;
-    }
-
-    .footer-grid {
-      max-width:1200px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:20px;
-      text-align:center;
-    }
-
-    .footer-logo img {
-      width:60px;
-      height:60px;
-      background:#0f172a;
-      padding:4px;
-      border-radius:999px;
-    }
-
-    .footer-social {
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      margin-bottom:8px;
-    }
-
-    .footer-address p,
-    .footer-center p {
-      margin-bottom:4px;
-    }
-
-    @media (max-width:900px){
-      .footer-grid {
-        grid-template-columns:1fr;
-      }
-      .header-inner {
-        justify-content:center;
-      }
-      .header-social {
-        margin-left:0;
-      }
-    }
   </style>
 
   <link rel="stylesheet" href="/assets/css/site.css" />
@@ -355,11 +189,8 @@
   <script src="/assets/js/menu-toggle.js" defer></script>
 </head>
 <body>
+  <!-- ГЛОБАЛЬНЫЙ ХЕДЕР -->
   <div data-include="/header-tr.html"></div>
-
-
-  <!-- ГЛОБАЛЬНЫЙ ХЭДЕР -->
-  
 
   <!-- КОНТЕНТ ATLAS -->
   <div class="atlas-shell">
@@ -390,54 +221,249 @@
         <section class="grid">
 
           <!-- Turkish Satellites -->
-          <a class="card" href="gokturk-1/"><div class="tag">Uydu</div><h2>GÖKTÜRK-1</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="gokturk-2/"><div class="tag">Uydu</div><h2>GÖKTÜRK-2</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="rasat/"><div class="tag">Uydu</div><h2>RASAT</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="imece/"><div class="tag">Uydu</div><h2>İMECE</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-1A/"><div class="tag">Uydu</div><h2>TÜRKSAT 1A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-1B/"><div class="tag">Uydu</div><h2>TÜRKSAT 1B</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-1C/"><div class="tag">Uydu</div><h2>TÜRKSAT 1C</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-2A/"><div class="tag">Uydu</div><h2>TÜRKSAT 2A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-3A/"><div class="tag">Uydu</div><h2>TÜRKSAT 3A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-3B/"><div class="tag">Uydu</div><h2>TÜRKSAT 3B</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-4A/"><div class="tag">Uydu</div><h2>TÜRKSAT 4A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-5A/"><div class="tag">Uydu</div><h2>TÜRKSAT 5A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-5B/"><div class="tag">Uydu</div><h2>TÜRKSAT 5B</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="turksat-6A/"><div class="tag">Uydu</div><h2>TÜRKSAT 6A</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
-          <a class="card" href="lagari/"><div class="tag">Uydu</div><h2>Lagari</h2><p>Ayrıntılı bilgi için tıklayın.</p></a>
+          <a class="card" href="gokturk-1/">
+            <div class="tag">Uydu</div>
+            <h2>GÖKTÜRK-1</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="gokturk-2/">
+            <div class="tag">Uydu</div>
+            <h2>GÖKTÜRK-2</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="rasat/">
+            <div class="tag">Uydu</div>
+            <h2>RASAT</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="imece/">
+            <div class="tag">Uydu</div>
+            <h2>İMECE</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-1A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 1A</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-1B/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 1B</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-1C/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 1C</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-2A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 2A</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-3A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 3A</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-3B/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 3B</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-4A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 4A</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-5A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 5A</h2>
+            <p>Ayrıntılı bilgi için тıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-5B/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 5B</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="turksat-6A/">
+            <div class="tag">Uydu</div>
+            <h2>TÜRKSAT 6A</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
+
+          <a class="card" href="lagari/">
+            <div class="tag">Uydu</div>
+            <h2>Lagari</h2>
+            <p>Ayrıntılı bilgi için tıklayın.</p>
+          </a>
 
           <!-- Space Station -->
-          <a class="card" href="iss/"><div class="tag">İstasyon</div><h2>Uluslararası Uzay İstasyonu</h2><p>3D görünüm için tıklayın.</p></a>
+          <a class="card" href="iss/">
+            <div class="tag">İstasyon</div>
+            <h2>Uluslararası Uzay İstasyonu</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
 
           <!-- Planets -->
-          <a class="card" href="mercury/"><div class="tag">Gezegen</div><h2>Merkür</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="venus/"><div class="tag">Gezegen</div><h2>Venüs</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="earth/"><div class="tag">Gezegen</div><h2>Dünya</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="mars/"><div class="tag">Gezegen</div><h2>Mars</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="jupiter/"><div class="tag">Gezegen</div><h2>Jüpiter</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="saturn/"><div class="tag">Gezegen</div><h2>Satürn</h2><p>3D görünüm için tıklayın.</p></a>
-          <a class="card" href="uranus/"><div class="tag">Gezegen</div><h2>Uranüs</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="neptune/"><div class="tag">Gezegen</div><h2>Neptün</h2><p>3D görünüm için тıklayın.</p></a>
+          <a class="card" href="mercury/">
+            <div class="tag">Gezegen</div>
+            <h2>Merkür</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="venus/">
+            <div class="tag">Gezegen</div>
+            <h2>Venüs</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="earth/">
+            <div class="tag">Gezegen</div>
+            <h2>Dünya</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="mars/">
+            <div class="tag">Gezegen</div>
+            <h2>Mars</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="jupiter/">
+            <div class="tag">Gezegen</div>
+            <h2>Jüpiter</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="saturn/">
+            <div class="tag">Gezegen</div>
+            <h2>Satürn</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="uranus/">
+            <div class="tag">Gezegen</div>
+            <h2>Uranüs</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="neptune/">
+            <div class="tag">Gezegen</div>
+            <h2>Neptün</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
 
           <!-- Probes / telescopes -->
-          <a class="card" href="sputnik/"><div class="tag">Uydu</div><h2>Sputnik</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="voyager1/"><div class="tag">Sonda</div><h2>Voyager 1</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="voyager2/"><div class="tag">Sonda</div><h2>Voyager 2</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="hubble/"><div class="tag">Teleskop</div><h2>Hubble Uzay Teleskobu</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="jameswebb/"><div class="tag">Teleskop</div><h2>James Webb Uzay Teleskobu</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="kepler/"><div class="tag">Teleskop</div><h2>Kepler Uzay Teleskobu</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="exomars/"><div class="tag">Görev</div><h2>ExoMars</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="marsodyssey/"><div class="tag">Görev</div><h2>Mars Odyssey</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="marsreconnaissance/"><div class="tag">Görev</div><h2>Mars Reconnaissance Orbiter</h2><p>Görev detayları için тıklayın.</p></a>
+          <a class="card" href="sputnik/">
+            <div class="tag">Uydu</div>
+            <h2>Sputnik</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="voyager1/">
+            <div class="tag">Sonda</div>
+            <h2>Voyager 1</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="voyager2/">
+            <div class="tag">Sonda</div>
+            <h2>Voyager 2</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="hubble/">
+            <div class="tag">Teleskop</div>
+            <h2>Hubble Uzay Teleskobu</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="jameswebb/">
+            <div class="tag">Teleskop</div>
+            <h2>James Webb Uzay Teleskobu</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="kepler/">
+            <div class="tag">Teleskop</div>
+            <h2>Kepler Uzay Teleskobu</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="exomars/">
+            <div class="tag">Görev</div>
+            <h2>ExoMars</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="marsodyssey/">
+            <div class="tag">Görev</div>
+            <h2>Mars Odyssey</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="marsreconnaissance/">
+            <div class="tag">Görev</div>
+            <h2>Mars Reconnaissance Orbiter</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
 
           <!-- Mars Rovers -->
-          <a class="card" href="perseverance/"><div class="tag">Rover</div><h2>Perseverance</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="curiosity/"><div class="tag">Rover</div><h2>Curiosity</h2><p>3D görünüm için тıklayın.</p></a>
-          <a class="card" href="ingenuity/"><div class="tag">Helikopter</div><h2>Ingenuity</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="opportunity/"><div class="tag">Rover</div><h2>Opportunity</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="sojourner/"><div class="tag">Rover</div><h2>Sojourner</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="spirit/"><div class="tag">Rover</div><h2>Spirit</h2><p>Görev detayları için тıklayın.</p></a>
-          <a class="card" href="zhurong/"><div class="tag">Rover</div><h2>Zhurong</h2><p>3D görünüm için тıklayın.</p></a>
+          <a class="card" href="perseverance/">
+            <div class="tag">Rover</div>
+            <h2>Perseverance</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="curiosity/">
+            <div class="tag">Rover</div>
+            <h2>Curiosity</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
+
+          <a class="card" href="ingenuity/">
+            <div class="tag">Helikopter</div>
+            <h2>Ingenuity</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="opportunity/">
+            <div class="tag">Rover</div>
+            <h2>Opportunity</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="sojourner/">
+            <div class="tag">Rover</div>
+            <h2>Sojourner</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="spirit/">
+            <div class="tag">Rover</div>
+            <h2>Spirit</h2>
+            <p>Görev detayları için tıklayın.</p>
+          </a>
+
+          <a class="card" href="zhurong/">
+            <div class="tag">Rover</div>
+            <h2>Zhurong</h2>
+            <p>3D görünüm için tıklayın.</p>
+          </a>
 
         </section>
 
@@ -446,8 +472,6 @@
   </div>
 
   <!-- ГЛОБАЛЬНЫЙ ФУТЕР -->
-  
-
   <div data-include="/footer-tr.html"></div>
 </body>
 </html>
