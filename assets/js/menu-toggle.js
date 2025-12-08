@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Опционально: закрывать меню при клике по пункту
+  // Закрываем меню при клике по пункту
   nav.addEventListener('click', function (e) {
     if (e.target.tagName.toLowerCase() === 'a') {
       nav.classList.remove('nav-open');
