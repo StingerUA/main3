@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html> 
 <html lang="tr">
 <head>
@@ -324,124 +321,118 @@ footer.footer{
 
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script src="/assets/js/include.js" defer></script>
+  <!-- Подключаем трекинг событий (GA4 + Yandex) -->
+  <script src="/assets/js/tracking.js" defer></script>
 </head>
 <body>
   <div data-include="/header-tr.html"></div>
 
+  <div class="page-wrapper">
+    <section class="contact-section">
+      <div class="contact-card">
+        <div class="contact-header">
+          <p class="contact-title">
+            <span>DFS LAB İLE İLETİŞİM</span><br>
+            Bizimle bağlantı kurun
+          </p>
+          <p class="contact-sub">
+            İş birlikleri, projeleriniz, deneysel çalışmalarınız veya uzay temalı
+            markalaşma fikirleriniz için formu doldurun; en kısa sürede size geri dönüş yapalım.
+          </p>
+        </div>
 
+        <!-- Форма помечена для аналитики -->
+        <form class="contact-form" 
+              action="mailto:hello@albaspace.com.tr"
+              method="POST"
+              enctype="text/plain"
+              data-track="contact_form"
+              data-form-name="dfs_tr">
 
+          <!-- скрытое поле с человекочитаемым названием типа запроса -->
+          <input type="hidden" id="istek-turu-label" name="istek_turu_label" value="">
 
-<div class="page-wrapper">
-  <!--<h1 class="page-title">DFS</h1>
-  <p class="page-sub"></p>
-  <img src="assets/images/dfs-lab.jpg" class="hero" alt="DFS Lab">
-
-   İLETİŞİM FORMU -->
-  <section class="contact-section">
-    <div class="contact-card">
-      <div class="contact-header">
-        <p class="contact-title">
-          <span>DFS LAB İLE İLETİŞİM</span><br>
-          Bizimle bağlantı kurun
-        </p>
-        <p class="contact-sub">
-          İş birlikleri, projeleriniz, deneysel çalışmalarınız veya uzay temalı
-          markalaşma fikirleriniz için formu doldurun; en kısa sürede size geri dönüş yapalım.
-        </p>
-      </div>
-
-      <!-- сейчас форма открывает почтовый клиент и шлёт письмо на hello@albaspace.com.tr -->
-      <form class="contact-form" 
-            action="mailto:hello@albaspace.com.tr"
-            method="POST"
-            enctype="text/plain">
-
-        <!-- скрытое поле с человекочитаемым названием типа запроса -->
-        <input type="hidden" id="istek-turu-label" name="istek_turu_label" value="">
-
-        <div class="form-grid">
-          <div class="form-full">
-            <label for="istek-turu" class="form-label">Talep türü</label>
-            <select id="istek-turu" name="istek_turu" class="form-control" required>
-              <option value="" disabled selected>Bir seçenek seçin</option>
-              <option value="iletisim">Genel iletişim / bizimle iletişime geç</option>
-              <option value="kolaborasyon">Bizimle iş birliği / kolaborasyon</option>
-              <option value="hizmet">Hizmetlerimizden birini talep etmek istiyorum</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="ad-soyad" class="form-label">Ad Soyad</label>
-            <input id="ad-soyad" name="ad_soyad" type="text" class="form-control"
-                   placeholder="Adınız ve soyadınız" required>
-          </div>
-
-          <div>
-            <label for="email" class="form-label">E-posta adresi</label>
-            <input id="email" name="email" type="email" class="form-control"
-                   placeholder="ornek@albaspace.com.tr" required>
-          </div>
-
-          <div>
-            <label for="sirket" class="form-label">Şirket / Marka (opsiyonel)</label>
-            <input id="sirket" name="sirket" type="text" class="form-control"
-                   placeholder="Şirket veya marka adınız">
-          </div>
-
-          <div>
-            <label for="konu" class="form-label">Konu</label>
-            <input id="konu" name="konu" type="text" class="form-control"
-                   placeholder="Kısaca ne hakkında yazıyorsunuz?" required>
-          </div>
-
-          <div class="form-full">
-            <label for="mesaj" class="form-label">Mesajınız</label>
-            <textarea id="mesaj" name="mesaj" class="form-control"
-                      placeholder="Projenizi, fikrinizi veya talebinizi mümkün olduğunca net anlatın." required></textarea>
-          </div>
-
-          <div class="form-full">
-            <div class="form-checkbox-row">
-              <input type="checkbox" id="kvkk" name="kvkk" required>
-              <label for="kvkk">
-                KVKK ve gizlilik politikasını okudum, kişisel verilerimin
-                bu iletişim formu kapsamında işlenmesini kabul ediyorum.
-              </label>
+          <div class="form-grid">
+            <div class="form-full">
+              <label for="istek-turu" class="form-label">Talep türü</label>
+              <select id="istek-turu" name="istek_turu" class="form-control" required>
+                <option value="" disabled selected>Bir seçenek seçin</option>
+                <option value="iletisim">Genel iletişim / bizimle iletişime geç</option>
+                <option value="kolaborasyon">Bizimle iş birliği / kolaborasyon</option>
+                <option value="hizmet">Hizmetlerimizden birini talep etmek istiyorum</option>
+              </select>
             </div>
-            <p class="contact-note">
-              Formu göndererek sizinle e-posta veya telefon üzerinden iletişime geçmemizi onaylamış olursunuz.
-            </p>
+
+            <div>
+              <label for="ad-soyad" class="form-label">Ad Soyad</label>
+              <input id="ad-soyad" name="ad_soyad" type="text" class="form-control"
+                     placeholder="Adınız ve soyadınız" required>
+            </div>
+
+            <div>
+              <label for="email" class="form-label">E-posta adresi</label>
+              <input id="email" name="email" type="email" class="form-control"
+                     placeholder="ornek@albaspace.com.tr" required>
+            </div>
+
+            <div>
+              <label for="sirket" class="form-label">Şirket / Marka (opsiyonel)</label>
+              <input id="sirket" name="sirket" type="text" class="form-control"
+                     placeholder="Şirket veya marka adınız">
+            </div>
+
+            <div>
+              <label for="konu" class="form-label">Konu</label>
+              <input id="konu" name="konu" type="text" class="form-control"
+                     placeholder="Kısaca ne hakkında yazıyorsunuz?" required>
+            </div>
+
+            <div class="form-full">
+              <label for="mesaj" class="form-label">Mesajınız</label>
+              <textarea id="mesaj" name="mesaj" class="form-control"
+                        placeholder="Projenizi, fikrinizi veya talebinizi mümkün olduğunca net anlatın." required></textarea>
+            </div>
+
+            <div class="form-full">
+              <div class="form-checkbox-row">
+                <input type="checkbox" id="kvkk" name="kvkk" required>
+                <label for="kvkk">
+                  KVKK ve gizlilik politikasını okudum, kişisel verilerimin
+                  bu iletişim formu kapsamında işlenmesini kabul ediyorum.
+                </label>
+              </div>
+              <p class="contact-note">
+                Formu göndererek sizinle e-posta veya telefon üzerinden iletişime geçmemizi onaylamış olursunuz.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="contact-submit">
-          <button type="submit">
-            Formu Gönder
-            <span class="icon">↗</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </section>
-</div>
+          <div class="contact-submit">
+            <button type="submit">
+              Formu Gönder
+              <span class="icon">↗</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
 
+  <script>
+    // Заполняем скрытое поле понятным текстом выбранного типа запроса
+    document.addEventListener("DOMContentLoaded", function () {
+      const select = document.getElementById("istek-turu");
+      const hidden = document.getElementById("istek-turu-label");
 
+      function updateLabel() {
+        const option = select.options[select.selectedIndex];
+        hidden.value = option ? option.text : "";
+      }
 
-<script>
-  // Заполняем скрытое поле понятным текстом выбранного типа запроса
-  document.addEventListener("DOMContentLoaded", function () {
-    const select = document.getElementById("istek-turu");
-    const hidden = document.getElementById("istek-turu-label");
-
-    function updateLabel() {
-      const option = select.options[select.selectedIndex];
-      hidden.value = option ? option.text : "";
-    }
-
-    updateLabel();
-    select.addEventListener("change", updateLabel);
-  });
-</script>
+      updateLabel();
+      select.addEventListener("change", updateLabel);
+    });
+  </script>
 
   <div data-include="/footer-tr.html"></div>
 </body>
