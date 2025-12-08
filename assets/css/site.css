@@ -32,8 +32,6 @@ body{
   display: none !important;
 }
 
-
-
 .header-logo{
   display:flex;
   align-items:center;
@@ -57,12 +55,15 @@ body{
   text-transform:uppercase;
 }
 
+/* меню чуть правее и по центру между логотипом и соцсетями */
 .main-nav{
   display:flex;
   gap:16px;
   flex-wrap:wrap;
   font-size:14px;
-  margin-left:20px;
+  flex:1;
+  justify-content:center;
+  margin:0 40px;
 }
 
 .main-nav a{
@@ -94,19 +95,18 @@ body{
   gap:14px;
 }
 
-/* SVG-иконки соцсетей в хедере */
-.social-icon-svg{
+/* Иконки соцсетей (PNG) в хедере */
+.header-social img{
   width:22px;
   height:22px;
-  fill:none;
-  stroke:#e5e7eb;
-  stroke-width:1.6;
-  transition:stroke .2s,transform .15s;
+  display:block;
+  border-radius:6px;
+  transition:transform .15s,filter .2s;
 }
 
-.header-social a:hover .social-icon-svg{
-  stroke:#ffffff;
+.header-social a:hover img{
   transform:translateY(-1px);
+  filter:brightness(1.2);
 }
 
 .top-lang-switch{
@@ -198,7 +198,7 @@ footer.footer{
   padding:4px;
 }
 
-/* соцсети в футере */
+/* соцсети в футере (PNG) */
 .footer-social{
   display:flex;
   justify-content:center;
@@ -206,18 +206,17 @@ footer.footer{
   margin-bottom:6px;
 }
 
-.footer-social svg{
+.footer-social img{
   width:22px;
   height:22px;
-  fill:none;
-  stroke:#e5e7eb;
-  stroke-width:1.6;
-  transition:stroke .2s,transform .15s;
+  display:block;
+  border-radius:6px;
+  transition:transform .15s,filter .2s;
 }
 
-.footer-social a:hover svg{
-  stroke:#ffffff;
+.footer-social a:hover img{
   transform:translateY(-1px);
+  filter:brightness(1.2);
 }
 
 .footer-address p,
