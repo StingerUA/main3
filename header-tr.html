@@ -29,8 +29,7 @@ ym(105726731, "init", {
 </noscript>
 <!-- /Yandex.Metrika counter -->
 
-
-<!-- Google Analytics (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV3RXWJ5PQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -39,10 +38,8 @@ ym(105726731, "init", {
   gtag('config', 'G-FV3RXWJ5PQ');
 </script>
 
-<!-- Наш файл с событиями -->
+<!-- tracking.js -->
 <script src="/assets/js/tracking.js" defer></script>
-
-
 
 <!-- ================= ANALYTICS END ================= -->
 
@@ -56,10 +53,10 @@ ym(105726731, "init", {
       <span>AlbaSpace</span>
     </a>
 
-<button class="menu-toggle" type="button" aria-label="Menüyü aç/kapat" aria-expanded="false">
-  <span class="menu-label">MENU</span>
-</button>
-
+    <!-- BURGER -->
+    <button class="menu-toggle" type="button" aria-label="Menüyü aç/kapat" aria-expanded="false">
+      <span class="menu-label">MENU</span>
+    </button>
 
     <!-- Navigation -->
     <nav class="main-nav">
@@ -71,17 +68,15 @@ ym(105726731, "init", {
       <a href="/blog.html">BLOG</a>
       <a href="/basindabiz.html">BASINDA BİZ</a>
       <a href="/galeri.html">GALERİ</a>
-      <a href="/iletisim.html">İLETİŞİМ</a>
+      <a href="/iletisim.html">İLETİŞİM</a>
       <a href="/dfs.html">DFS</a>
     </nav>
 
     <!-- Social icons -->
     <div class="header-social">
 
-      <a href="https://www.instagram.com/albaspace_/" target="_blank" aria-label="Instagram">
-        target="_blank"
-        aria-label="Inst"
-        data-track="inst"        <img src="/assets/icons/inst.png" alt="Instagram">
+      <a href="https://www.instagram.com/albaspace_/" target="_blank" aria-label="Instagram" data-track="inst">
+        <img src="/assets/icons/inst.png" alt="Instagram">
       </a>
 
       <a href="https://www.linkedin.com/in/idrisalbayrak/" target="_blank" aria-label="LinkedIn">
@@ -96,13 +91,7 @@ ym(105726731, "init", {
         <img src="/assets/icons/x.png" alt="X">
       </a>
 
-      <!-- WhatsApp с трекингом -->
-      <a
-        href="https://wa.me/905387781018"
-        target="_blank"
-        aria-label="WhatsApp"
-        data-track="whatsapp"
-      >
+      <a href="https://wa.me/905387781018" target="_blank" aria-label="WhatsApp" data-track="whatsapp">
         <img src="/assets/icons/watsupp.png" alt="WhatsApp">
       </a>
 
@@ -116,3 +105,5 @@ ym(105726731, "init", {
 
   </div>
 </header>
+
+<script src="/assets/js/menu-toggle.js" defer></script>
