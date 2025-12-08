@@ -42,8 +42,7 @@ ym(105726731, "init", {
 <!-- Наш файл с событиями -->
 <script src="/assets/js/tracking.js" defer></script>
 
-<!-- Скрипт для бургер-меню -->
-<script src="/assets/js/menu-toggle.js" defer></script>
+
 
 <!-- ================= ANALYTICS END ================= -->
 
@@ -57,12 +56,10 @@ ym(105726731, "init", {
       <span>AlbaSpace</span>
     </a>
 
-    <!-- Кнопка бургер-меню (мобильная) -->
-    <button class="menu-toggle" type="button" aria-label="Menüyü aç/kapat" aria-expanded="false">
-      <span class="menu-bar"></span>
-      <span class="menu-bar"></span>
-      <span class="menu-bar"></span>
-    </button>
+<button class="menu-toggle" type="button" aria-label="Menüyü aç/kapat" aria-expanded="false">
+  <span class="menu-label">MENU</span>
+</button>
+
 
     <!-- Navigation -->
     <nav class="main-nav">
@@ -82,7 +79,9 @@ ym(105726731, "init", {
     <div class="header-social">
 
       <a href="https://www.instagram.com/albaspace_/" target="_blank" aria-label="Instagram">
-        <img src="/assets/icons/inst.png" alt="Instagram">
+        target="_blank"
+        aria-label="Inst"
+        data-track="inst"        <img src="/assets/icons/inst.png" alt="Instagram">
       </a>
 
       <a href="https://www.linkedin.com/in/idrisalbayrak/" target="_blank" aria-label="LinkedIn">
