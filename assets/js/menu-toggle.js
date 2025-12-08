@@ -1,8 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function initBurger() {
   var toggle = document.querySelector('.menu-toggle');
   var nav = document.querySelector('.main-nav');
 
-  if (!toggle || !nav) return;
+  // если хедер ещё не подгружен include.js – ждём
+  if (!toggle || !nav) {
+    setTimeout(initBurger, 300);
+    return;
+  }
+
+  // уже инициализировали – второй раз не надо
+  if (toggle.dataset.burgerInit === '1') return;
+  toggle.dataset.burgerInit = '1';
 
   toggle.addEventListener('click', function () {
     var isOpen = nav.classList.toggle('nav-open');
@@ -10,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Закрываем меню при клике по пункту
   nav.addEventListener('click', function (e) {
     if (e.target.tagName.toLowerCase() === 'a') {
       nav.classList.remove('nav-open');
@@ -18,4 +25,4 @@ document.addEventListener('DOMContentLoaded', function () {
       toggle.setAttribute('aria-expanded', 'false');
     }
   });
-});
+})();
