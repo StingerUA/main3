@@ -2,13 +2,13 @@
   var toggle = document.querySelector('.menu-toggle');
   var nav = document.querySelector('.main-nav');
 
-  // Хедер ещё не загружен include.js – подождём
+  // Хедер может подгружаться include.js — ждём, если его ещё нет
   if (!toggle || !nav) {
     setTimeout(initBurger, 300);
     return;
   }
 
-  // Чтобы не инициализировать несколько раз
+  // Защита от повторной инициализации
   if (toggle.dataset.burgerInit === '1') return;
   toggle.dataset.burgerInit = '1';
 

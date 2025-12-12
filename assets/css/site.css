@@ -1,5 +1,7 @@
-/* БАЗОВЫЕ НАСТРОЙКИ
-   (НЕ трогаем background и color, чтобы страницы сами их задавали) */
+/* =========================
+   БАЗОВЫЕ НАСТРОЙКИ
+   ========================= */
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -25,13 +27,6 @@ body{
   flex-wrap:wrap;
 }
 
-/* Hide SHOP and DFS from header menu */
-.main-nav a[href="/shop.html"],
-.main-nav a[href="/dfs.html"],
-.main-nav a[href="/blog.html"]{
-  display:none !important;
-}
-
 .header-logo{
   display:flex;
   align-items:center;
@@ -55,7 +50,7 @@ body{
   text-transform:uppercase;
 }
 
-/* меню чуть правее и по центру между логотипом и соцсетями */
+/* Главное меню в центре между логотипом и соцсетями */
 .main-nav{
   display:flex;
   gap:16px;
@@ -64,6 +59,13 @@ body{
   flex:1;
   justify-content:center;
   margin:0 40px;
+}
+
+/* Прячем пока SHOP / DFS / BLOG из меню (если нужно) */
+.main-nav a[href="/shop.html"],
+.main-nav a[href="/dfs.html"],
+.main-nav a[href="/blog.html"]{
+  display:none !important;
 }
 
 .main-nav a{
@@ -134,7 +136,6 @@ body{
 
 /* =========================
    ОБЩИЕ КЛАССЫ СТРАНИЦ
-   (используются, например, на İletişim)
    ========================= */
 
 .page-wrapper{
@@ -263,7 +264,7 @@ footer.footer{
   white-space:nowrap;
 }
 
-/* В открытом состоянии можно чуть усилить свечение */
+/* В открытом состоянии — усиленное свечение */
 .menu-toggle.is-open{
   box-shadow:
     0 0 20px rgba(56,189,248,1),
@@ -281,5 +282,79 @@ footer.footer{
     box-shadow:
       0 0 20px rgba(56,189,248,0.95),
       0 0 48px rgba(56,189,248,0.5);
+  }
+}
+
+/* =========================
+   АДАПТИВ
+   ========================= */
+
+@media(max-width:900px){
+  .header-inner{
+    position:relative;
+    justify-content:flex-start;
+  }
+
+  /* показываем бургер на мобильной ширине */
+  .menu-toggle{
+    display:inline-flex;
+  }
+
+  /* навигация превращается во выпадающее меню */
+  .main-nav{
+    position:absolute;
+    top:100%;
+    right:16px;
+    left:16px;
+    margin-left:0;
+    margin-top:10px;
+    padding:10px 14px 14px;
+    background:radial-gradient(circle at 0 0, rgba(15,23,42,0.95), transparent 70%) #020617;
+    border-radius:18px;
+    border:1px solid rgba(30,64,175,0.7);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:14px;
+
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transform:translateY(-6px);
+    pointer-events:none;
+    transition:
+      max-height 0.25s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    z-index:40;
+  }
+
+  .main-nav a{
+    padding:6px 4px;
+  }
+
+  /* открытое состояние меню */
+  .main-nav.nav-open{
+    max-height:360px;
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+
+  /* соцсети и переключатель языка убираем с мобилы */
+  .header-social,
+  .top-lang-switch{
+    display:none;
+  }
+
+  /* футер в один столбец */
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(min-width:901px){
+  .main-nav{
+    display:flex;
   }
 }
